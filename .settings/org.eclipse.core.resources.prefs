@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WebContent/WebSocketInspect.js=MS932
+encoding//WebContent/css/style1.css=MS932
+encoding//WebContent/test.jsp=UTF-8
+encoding//src/controllers/HomeServlet.java=MS932
+encoding//src/controllers/MessageServlet.java=MS932
+encoding//src/models/Main.java=MS932
+encoding//src/models/MessageEntity.java=MS932
+encoding//src/models/ProfileEntity.java=MS932
+encoding//src/models/TinderDao.java=MS932
+encoding//src/org/ukiuni/inspect/websocket/action/WebSocketEndpointAction.java=UTF-8

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="WINDOWS-31J"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <error-page>
+    <error-code>404</error-code>
+    <location>/Error/404.html</location>
+  </error-page>
+  <security-role>
+    <role-name>jamyto-user</role-name>
+  </security-role>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Protected Area</web-resource-name>
+      <url-pattern>/authtest/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>jamyto-user</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>auth test</realm-name>
+    <form-login-config>
+      <form-login-page>/Login/AuthLoginForm.jsp</form-login-page>
+      <form-error-page>/Error/AuthError.html</form-error-page>
+    </form-login-config>
+  </login-config>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>SSL Only</web-resource-name>
+      <url-pattern>/SSL-Only/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <servlet>
+    <servlet-name>test_chat</servlet-name>
+    <servlet-class>controllers.MessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test_chat</servlet-name>
+    <url-pattern>/test_chat</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>home</servlet-name>
+    <servlet-class>controllers.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+</web-app>

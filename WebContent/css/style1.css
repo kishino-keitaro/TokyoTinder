@@ -1,0 +1,475 @@
+body{background-color:#fafafa;margin: 0;padding: 0;display:flex;overflow:hidden;box-sizing:border-box;}
+div.nav {
+	width: 200px;
+	font-size: 90%;
+	float: left;
+	z-index: 3;
+	position: relative;
+	height: 100vh;
+}
+
+ul.nl {
+	background-color:white;
+	margin: 0;
+	padding:0;
+	border-right: 1px #c0c0c0 solid;
+	list-style-type: none;
+	text-align: left;
+	width:100%;
+	overflow-x:hidden;
+}
+
+div#navHidden{
+	padding:0;
+	width:110%;
+	height:100vh;
+	overflow-y:scroll
+}
+div.nav ul.nl .partner {
+	height:calc(100%/14);
+	min-height:50px;
+	background-color: white;
+	display: flex;
+}
+
+div.nav ul.nl .myprof {
+	background-color: #8f4be8;
+	color: white;
+	display: flex;
+	position: relative;
+}
+
+.clearfix::after {
+	content:"";
+	clear: both;
+	display: block;
+	height: 0;
+}
+
+div.nav ul.nl .myprof a,div.nav ul.nl .partner a{
+	display: block;
+	height:100%;
+	position: relative;
+	padding: 9px 10px;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	width: 100%;
+}
+
+div.nav ul.nl .partner a {
+	width:98%;
+	color: black;
+	font-weight:normal;
+}
+div.nav ul.nl .partner a:hover {
+	height:100%;
+	box-sizing:border-box;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, .4);
+	border-right: pink solid;
+}
+
+#content {
+	display:inline-block;
+	padding:0;
+	width:100%;
+}
+
+.message {
+	display:none;
+	/* text-align: center; */
+	min-width:400px;
+	height:100vh;
+	position:absolute;
+	width:calc(100% - 200px);
+	background-color:#fafafa;
+	top:1px;
+	left:100%;
+	z-index:3;
+	border:solid 1px #cacaca;
+}
+img#randomPhoto{
+	object-fit: cover;
+	height:400px;
+	width:400px;
+}
+img#profPhoto{
+	border-radius:10px;
+	object-fit: cover;
+	height:400px;
+	width:400px;
+}
+.profile {
+	margin:0 auto;
+	z-index: 1;
+	width:min-content;
+	border: 1px solid #cacaca;
+	border-radius: 10px;
+	position: relative;
+	top:50px;
+}
+.select {
+	text-align: center;
+	margin: 0;
+	margin-left: 0;
+}
+#r_content{
+	padding-bottom:15px;
+	border:solid 1px #cacaca;
+	border-radius:10px;
+}
+.someOne{
+	width:min-content;
+	padding:auto;
+	padding-top:50px;
+	margin:auto;
+	margin-top:50px;
+}
+.select img {
+	border-radius: 10px;
+}
+.noOne{
+	width:min-content;
+	margin:0 auto;
+}
+.noOne img {
+	border-radius: 100px;
+	margin: 12px auto;
+}
+
+.pink {
+	width: 400px;
+	height: 400px;
+	border-radius: 400px;
+	background-color: pink;
+	display: flex;
+}
+
+.pink2 {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	background-color: #ea1899;
+	margin: 100px auto;
+}
+
+.white {
+	width: 150px;
+	height: 150px;
+	border-radius: 90px;
+	background-color: white;
+	margin: 25px auto
+}
+
+.scrollHidden,.profScrollHidden {
+	margin:0;
+	min-width:350px;
+	width: 100%;
+	overflow: hidden;
+}
+
+div.scroll,div.profScroll {
+	text-align:left;
+	width: 100%;
+	height: 64px;
+	padding: 8px;
+	overflow: auto;
+}
+div.profScroll{
+	height: 128px;
+}
+
+.nameAge,.profname {
+	font-size:130%;
+	text-align:center;
+	width: 400px;
+	height: 50px;
+	border-bottom:solid 1px #cacaca;
+}
+
+.button {
+	background-color: #f998c6;
+	font-size: 0.75em;
+	display: block;
+	width: 100px;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #f998c6;
+	border-radius: 20px;
+	color: white;
+	text-decoration: none;
+	margin: 0 auto;
+
+}
+.button2 {
+	background-color: #f998c6;
+	font-size: 0.75em;
+	display: block;
+	width: 120px;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #f998c6;
+	border-radius: 20px;
+	color: white;
+	text-decoration: none;
+	margin: 0 auto;
+
+}
+.proflogout {
+	margin-bottom: -20px;
+	text-align: center;
+}
+
+.profch {
+    position: relative;
+	bottom:20px;
+    margin-bottom: -40px;
+    text-align: center;
+}
+
+.editProf {
+	display: none;
+	margin-left: 270px;
+	border: 1px solid #bbbabab5;
+	border-radius: 10px;
+	width: 470px;
+	overflow: hidden;
+}
+
+.profimageInside {
+	float: left;
+	height: 500px;
+}
+
+.changePass {
+	display: none;
+}
+.changebutton{
+	border-top:1px solid #bbbabab5;
+	text-align:center;
+	height:150px;
+}
+.changePassButton{
+	margin:15px;
+}
+.changeProf {
+	display: none;
+	margin-left: 270px;
+}
+
+.pic img {
+	border-radius: 40px;
+}
+
+.pic {
+	float: left;
+}
+
+.text {
+	clear: right;
+	margin-left: 50px;
+}
+
+.jikoprof {
+	margin-top: 10px;
+}
+
+.sidemessage {
+	width: 120px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.sidename {
+	width: 120px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.judge {
+	margin-top: 40px;
+	display: flex;
+}
+
+.maru {
+	margin-right: auto;
+}
+
+.batsu {
+	padding-right:40%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.imgInput input[type="file"] {
+  opacity: 0;
+}
+.imgInput{
+  width:200px ;
+  float:right;
+}
+#messageContent{
+	display:flex;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+#messageFlame{
+	text-align:center;
+	overflow:hidden;
+    height:100%;
+    width:75%;
+    min-width:400px;
+    margin:0;
+}
+#messageUser{
+	margin:0;
+	width:300px;
+	height:100vh;
+	overflow:hidden;
+	box-sizing:border-box;
+	border:solid 1px #cacaca;
+}
+
+div#messageArea{
+	width:calc(100% + 18px);
+	height:calc(100% - 150px);
+	overflow-y:scroll;
+	overflow-x:hidden;
+	margin:auto;
+	text-align:left;
+	border:solid 1px #cacaca;
+	border-left:none;
+}
+
+div.self{
+	display:table;
+	background-color:#fff;
+	max-width:55%;
+	height:auto;
+	padding:5px 15px;
+	margin-left: auto;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border:solid 1px #e8e8e8;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
+}
+
+div.pair{
+	display:table;
+	background-color:#F8BBD0;
+	max-width:55%;
+	padding:5px 15px;
+	margin-right: auto;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, .4);
+}
+
+div.announce{
+	font-size:20px;
+	display:table;
+	background-color:#def;
+	max-width:180px;
+	padding:5px 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+#inputArea{
+	height:10%;
+}
+#messageNav{
+	width:100%;
+	min-width:320px;
+	height:80px;
+	padding:10px;
+}
+
+#messageNav p{
+	display:inline-table;
+	margin-left:10%;
+}
+
+#messageInput{
+	height:50px;
+	width:100%;
+	box-sizing:border-box;
+	border:none;
+	background-color:#FFF;
+	margin:auto;
+}
+#messageSend{
+	margin:3px 0 2px auto;
+	height:40px;
+	width:80px;
+	line-height:50px;
+	position:relative;
+	top:-50px;
+	border-radius:10px;
+	border:solid 1px gray;
+	background-color:#BDBDBD
+}
+#messageClose{
+	vartical-algin:auto;
+	height:24px;
+	width:24px;
+	line-height:24px;
+	font-size:20pt;
+	color:#E91E63;
+	box-sizing:border-box;
+	border:solid 1px;
+	border-radius:12px;
+}
+
+#m_photo{
+	object-fit: cover;
+	height:45%;
+	width:300px;
+}
+
+#m_name{
+	line-height:50px;
+	font-weight:bold;
+	text-align:center;
+	margin:0;
+	height:50px;
+}
+
+#m_comment{
+	color:#757575;
+	margin:0;
+	padding:10px;
+	height:calc(55% - 97px);
+	box-sizing:border-box;
+	border-top:solid 1px #cacaca;
+	border-bottom:solid 1px #cacaca;
+}
+
+#m_delete{
+	color:#757575;
+	line-height:50px;
+	text-align:center;
+	margin:0;
+	padding:0;
+	height:50px;
+}
+
+div#profileflame{
+	position:absolute;
+	width:calc(100% - 200px);
+	height:100%;
+	background-color:#fafafa;
+	top:0;
+	left:100%;
+	z-index:3;
+	border:solid 1px #cacaca;
+}
