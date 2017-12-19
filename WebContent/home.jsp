@@ -52,12 +52,22 @@
 			left :"200px"
 		}, 'slow');
 	};
+
+	function message_close() {
+		$('.message').animate({
+			left :"100%"
+		}, 'slow');
+		$('.message').hide(0);
+	};
+
 	/* プロフィール画面表示 */
 	var check = true;
 	function prof() {
 		var event = $("#prof_btn").get(0).onclick;
 		$("#prof_btn").get(0).onclick = "";
 		if(check){
+			$('.profile').show();
+			$('.editProf').hide();
 			$('#profileflame').show(0);
 			$('#profileflame').animate({
 				left :"200px"
@@ -244,7 +254,7 @@
 			<div id ="messageFlame">
 				<div id ="messageNav">
 				<p>彼女とは昨日マッチしました。</p>
-				<p id ="messageClose">×</p>
+				<p id ="messageClose" onclick="message_close();">×</p>
 				</div>
 				<div id="messageArea">
 
