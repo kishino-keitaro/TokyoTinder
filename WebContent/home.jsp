@@ -38,7 +38,7 @@
 		});
 	});
 	/* メッセージ画面表示 */
-	function message_window(u_id,m_id) {
+	function message_window(u_id,m_id,t_id) {
 		if(!check){
 			$('#profileflame').animate({
 				left :"100%"
@@ -47,7 +47,7 @@
 			check = true;
 		}
 		$('.message').show(0);
-		changeMessage(u_id,m_id);
+		changeMessage(u_id,m_id,t_id);
 		$('.message').animate({
 			left :"200px"
 		}, 'slow');
@@ -156,7 +156,7 @@
 						int messageId = dao.getMessageId(self.getUserId(), m_ent.getUserId());
 						ProfileEntity p_ent = m_ent.getEnt();
 			%>
-			<li class="partner clearfix"><a class ="aaaaaaaaa" href="javascript:void(0)" onclick="message_window(<%=self.getUserId()%>,<%=messageId%>);">
+			<li class="partner clearfix" id="<%=messageId%>";><a href="javascript:void(0)" onclick="message_window(<%=self.getUserId()%>,<%=messageId%>,<%=m_ent.getUserId()%>);">
 						<input type="hidden" name="Ids" value="<%=messageId + ":" + m_ent.getUserId()%>">
 						<div class="pic">
 							<img border="0" src="<%=p_ent.getImage()%>" width="40" height="40" alt="photo">

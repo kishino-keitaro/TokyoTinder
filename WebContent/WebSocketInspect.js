@@ -29,15 +29,29 @@ window.onload = function() {
 			var result = document.getElementById("messageInput").name
 					.split(":");
 			var id = result[0];
-			console.log(id + ":" + data.user);
+			var messageId = result[1];
 			if (data.user === id) {
 				appendMessage(data.text, "self", id);
 			} else {
 				appendMessage(data.text, "pair", id);
 			}
+			var nav_fix = document.getElementsByClassName("partner clearfix");
+			for (let i = 0; i < nav_fix.length; i++) {
+				console.log(messageId +":"+ nav_fix[i].id);
+				if (messageId == nav_fix[i].id) {
+					var p = document.getElementById("navHidden");
+					nav_fix[i].getElementsByClassName("sidemessage")[0].innerText = data.text;
+					p.insertBefore(nav_fix[i], p.firstChild);
+					break;
+				}
+			}
 		} else if ("createMessage" == data.command) {
 			$("#messageArea").empty();
 			$(data.text).appendTo(messageArea);
+			document.getElementById("m_photo").src = data.image;
+			document.getElementById("m_name").innerText = data.name + " "
+					+ data.age;
+			document.getElementById("m_comment").innerText = data.comment;
 			document.getElementById("messageArea").scrollTop = messageArea.scrollHeight;
 		} else if ("judge" == data.command) {
 			console.log("match : " + data.match);
@@ -58,7 +72,6 @@ window.onload = function() {
 			});
 			if (data.match != "false") {
 				console.log("match!!!!!");
-
 				var parent = document.getElementById("navHidden")
 				var li_tag = document.createElement("li");
 				var a_tag = document.createElement("a");
@@ -77,11 +90,14 @@ window.onload = function() {
 				div2.appendChild(div4);
 
 				li_tag.className = "partner clearfix";
+				li_tag.id = data.match;
 				a_tag.href = "javascript:void(0)";
-				a_tag.onclick = function(){message_window(data.user,data.match);};
+				a_tag.onclick = function() {
+					message_window(data.user, data.match, _targetId);
+				};
 				input1.type = "hidden";
 				input1.name = "ids";
-				input1.value = data.match + ":" + _targetId;
+				input1.value = data.user + ":" + data.match + ":" + _targetId;
 				div1.className = "pic";
 				div2.className = "text";
 				div3.className = "sidename";
@@ -113,7 +129,7 @@ window.onload = function() {
 				var message = messageInput.value;
 				if (webSocket && "" != message) {
 					var talkRoom = messageInput.name;
-					webSocket.send("message:" + talkRoom + message);
+					webSocket.send("message:" + talkRoom + ":" + message);
 					messageInput.value = "";
 				}
 			}
@@ -141,6 +157,8 @@ window.onload = function() {
 						+ profsex[0].value + ":" + proftargetId[0].value);
 			});
 }
-function changeMessage(u_id,m_id){
-	webSocket.send("createMessage:" + u_id + ":" + m_id);
+function changeMessage(u_id, m_id, t_id) {
+	var temppp = document.getElementById("messageInput");
+	temppp.name = u_id + ":" + m_id;
+	webSocket.send("createMessage:" + u_id + ":" + m_id + ":" + t_id);
 }
