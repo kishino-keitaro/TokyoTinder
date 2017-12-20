@@ -9,8 +9,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/ica/Downloads/pleiades/tomcat/9/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ica/Downloads/pleiades/tomcat/9/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ica/Downloads/pleiades/tomcat/9/lib/tomcat-websocket.jar"/>
+	<classpathentry kind="lib" path="C:/pleiades/tomcat/9/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/pleiades/tomcat/9/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/pleiades/tomcat/9/lib/tomcat-websocket.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
