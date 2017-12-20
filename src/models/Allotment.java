@@ -27,18 +27,18 @@ public class Allotment extends HttpServlet{
 			System.out.println("home");
 			home();
 			break;
-		case "judge":
-			System.out.println("judge");
-			judge();
-			break;
-		case "message":
-			System.out.println("message");
-			message();
-			break;
-		case "profile":
-			System.out.println("profile");
-			home();
-			break;
+//		case "judge":
+//			System.out.println("judge");
+//			judge();
+//			break;
+//		case "message":
+//			System.out.println("message");
+//			message();
+//			break;
+//		case "profile":
+//			System.out.println("profile");
+//			home();
+//			break;
 		}
 	}
 
@@ -55,6 +55,7 @@ public class Allotment extends HttpServlet{
 			System.out.println("Home_エラー");
 		}
 	}
+	/*
 	void judge () throws ServletException, IOException  {
 		req.setCharacterEncoding("Windows-31J");
 		try {
@@ -88,4 +89,5 @@ public class Allotment extends HttpServlet{
 			System.out.println("エラー");
 		}
 	}
+	*/
 }

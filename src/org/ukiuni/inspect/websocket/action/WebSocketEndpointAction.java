@@ -93,7 +93,7 @@ public class WebSocketEndpointAction {
 	@OnClose
 	public void onClose(Session session) {
 		// 完了時
-		System.out.println("!!!!!!!!!!!!!!!!");
+		System.out.println("onClose!!");
 		sessions.remove(session);
 	}
 

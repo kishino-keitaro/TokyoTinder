@@ -23,7 +23,6 @@ window.onload = function() {
 		// appendMessage("Error", "red");
 	}
 	webSocket.onmessage = function(message) {
-		console.log(message);
 		var data = JSON.parse(message.data);
 		if ("message" == data.command) {
 			var result = document.getElementById("messageInput").name
