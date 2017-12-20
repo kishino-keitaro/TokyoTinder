@@ -561,7 +561,6 @@ public class TinderDao {
 				}
 				rs.close();
 			}
-
 		} finally {
 			pstatement.close();
 		}
