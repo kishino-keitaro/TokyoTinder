@@ -13,5 +13,6 @@
         session.setAttribute("self", dao.getProfile(id));
         session.setAttribute("self_id", id);
         response.sendRedirect("home");
+        
 %>
 
