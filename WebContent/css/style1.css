@@ -1,4 +1,12 @@
-body{background-color:#fafafa;margin: 0;padding: 0;display:flex;overflow:hidden;box-sizing:border-box;}
+body {
+	background-color: #fafafa;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
 div.nav {
 	width: 200px;
 	font-size: 90%;
@@ -9,25 +17,26 @@ div.nav {
 }
 
 ul.nl {
-	background-color:white;
+	background-color: white;
 	margin: 0;
-	padding:0;
+	padding: 0;
 	border-right: 1px #c0c0c0 solid;
 	list-style-type: none;
 	text-align: left;
-	width:100%;
-	overflow-x:hidden;
+	width: 100%;
+	overflow-x: hidden;
 }
 
-div#navHidden{
-	padding:0;
-	width:110%;
-	height:100vh;
-	overflow-y:scroll
+div#navHidden {
+	padding: 0;
+	width: 110%;
+	height: calc(100vh - 60px);
+	overflow-y: scroll
 }
+
 div.nav ul.nl .partner {
-	height:calc(100%/14);
-	min-height:50px;
+	height: calc(100%/ 14);
+	min-height: 50px;
 	background-color: white;
 	display: flex;
 }
@@ -40,15 +49,15 @@ div.nav ul.nl .myprof {
 }
 
 .clearfix::after {
-	content:"";
+	content: "";
 	clear: both;
 	display: block;
 	height: 0;
 }
 
-div.nav ul.nl .myprof a,div.nav ul.nl .partner a{
+div.nav ul.nl .myprof a, div.nav ul.nl .partner a {
 	display: block;
-	height:100%;
+	height: 100%;
 	position: relative;
 	padding: 9px 10px;
 	text-decoration: none;
@@ -58,80 +67,90 @@ div.nav ul.nl .myprof a,div.nav ul.nl .partner a{
 }
 
 div.nav ul.nl .partner a {
-	width:98%;
+	width: 98%;
 	color: black;
-	font-weight:normal;
+	font-weight: normal;
 }
+
 div.nav ul.nl .partner a:hover {
-	height:100%;
-	box-sizing:border-box;
+	height: 100%;
+	box-sizing: border-box;
 	box-shadow: 0px 3px 10px rgba(0, 0, 0, .4);
 	border-right: pink solid;
 }
 
 #content {
-	display:inline-block;
-	padding:0;
-	width:100%;
+	display: inline-block;
+	padding: 0;
+	width: 100%;
 }
 
 .message {
-	display:none;
+	display: none;
 	/* text-align: center; */
-	min-width:400px;
-	height:100vh;
-	position:absolute;
-	width:calc(100% - 200px);
-	background-color:#fafafa;
-	top:1px;
-	left:100%;
-	z-index:3;
-	border:solid 1px #cacaca;
+	min-width: 400px;
+	height: 100vh;
+	position: absolute;
+	width: calc(100% - 200px);
+	background-color: #fafafa;
+	top: 1px;
+	left: 100%;
+	z-index: 3;
+	border: solid 1px #cacaca;
 }
-img#randomPhoto{
+
+img#randomPhoto {
 	object-fit: cover;
-	height:400px;
-	width:400px;
+	height: 400px;
+	width: 400px;
 }
-img#profPhoto{
-	border-radius:10px;
+
+img#profPhoto {
+	border-radius: 10px;
 	object-fit: cover;
-	height:400px;
-	width:400px;
+	height: 400px;
+	width: 400px;
 }
+
 .profile {
-	margin:0 auto;
+	margin: 0 auto;
 	z-index: 1;
-	width:min-content;
+	width: min-content;
 	border: 1px solid #cacaca;
 	border-radius: 10px;
 	position: relative;
-	top:50px;
+	top: 50px;
 }
+
 .select {
 	text-align: center;
 	margin: 0;
 	margin-left: 0;
 }
-#r_content{
-	padding-bottom:15px;
-	border:solid 1px #cacaca;
-	border-radius:10px;
+
+#r_content {
+	padding-bottom: 15px;
+	border: solid 1px #cacaca;
+	border-radius: 10px;
 }
-.someOne{
-	width:min-content;
-	padding:auto;
-	padding-top:50px;
-	margin:auto;
-	margin-top:50px;
+
+.someOne {
+	width: min-content;
+	padding: auto;
+	padding-top: 50px;
+	margin: auto;
+	margin-top: 50px;
 }
+
 .select img {
 	border-radius: 10px;
 }
-.noOne{
-	width:min-content;
-	margin:0 auto;
+
+.noOne {
+	width: min-content;
+	margin: 0 auto;
 }
+
 .noOne img {
 	border-radius: 100px;
 	margin: 12px auto;
@@ -161,30 +180,31 @@ img#profPhoto{
 	margin: 25px auto
 }
 
-.scrollHidden,.profScrollHidden {
-	margin:0;
-	min-width:350px;
+.scrollHidden, .profScrollHidden {
+	margin: 0;
+	min-width: 350px;
 	width: 100%;
 	overflow: hidden;
 }
 
-div.scroll,div.profScroll {
-	text-align:left;
+div.scroll, div.profScroll {
+	text-align: left;
 	width: 100%;
 	height: 64px;
 	padding: 8px;
 	overflow: auto;
 }
-div.profScroll{
+
+div.profScroll {
 	height: 128px;
 }
 
-.nameAge,.profname {
-	font-size:130%;
-	text-align:center;
+.nameAge, .profname {
+	font-size: 130%;
+	text-align: center;
 	width: 400px;
 	height: 50px;
-	border-bottom:solid 1px #cacaca;
+	border-bottom: solid 1px #cacaca;
 }
 
 .button {
@@ -199,8 +219,8 @@ div.profScroll{
 	color: white;
 	text-decoration: none;
 	margin: 0 auto;
-
 }
+
 .button2 {
 	background-color: #f998c6;
 	font-size: 0.75em;
@@ -213,18 +233,18 @@ div.profScroll{
 	color: white;
 	text-decoration: none;
 	margin: 0 auto;
-
 }
+
 .proflogout {
 	margin-bottom: -20px;
 	text-align: center;
 }
 
 .profch {
-    position: relative;
-	bottom:20px;
-    margin-bottom: -40px;
-    text-align: center;
+	position: relative;
+	bottom: 20px;
+	margin-bottom: -40px;
+	text-align: center;
 }
 
 .editProf {
@@ -244,14 +264,17 @@ div.profScroll{
 .changePass {
 	display: none;
 }
-.changebutton{
-	border-top:1px solid #bbbabab5;
-	text-align:center;
-	height:150px;
+
+.changebutton {
+	border-top: 1px solid #bbbabab5;
+	text-align: center;
+	height: 150px;
 }
-.changePassButton{
-	margin:15px;
+
+.changePassButton {
+	margin: 15px;
 }
+
 .changeProf {
 	display: none;
 	margin-left: 270px;
@@ -298,178 +321,190 @@ div.profScroll{
 }
 
 .batsu {
-	padding-right:40%;
-	margin-left:auto;
-	margin-right:auto;
+	padding-right: 40%;
+	margin-left: auto;
+	margin-right: auto;
 }
+
 .imgInput input[type="file"] {
-  opacity: 0;
-}
-.imgInput{
-  width:200px ;
-  float:right;
-}
-#messageContent{
-	display:flex;
-	height:100%;
-	padding:0;
-	margin:0;
+	opacity: 0;
 }
 
-#messageFlame{
-	text-align:center;
-	overflow:hidden;
-    height:100%;
-    width:75%;
-    min-width:400px;
-    margin:0;
-}
-#messageUser{
-	margin:0;
-	width:300px;
-	height:100vh;
-	overflow:hidden;
-	box-sizing:border-box;
-	border:solid 1px #cacaca;
+.imgInput {
+	width: 200px;
+	float: right;
 }
 
-div#messageArea{
-	width:calc(100% + 18px);
-	height:calc(100% - 150px);
-	overflow-y:scroll;
-	overflow-x:hidden;
-	margin:auto;
-	text-align:left;
-	border:solid 1px #cacaca;
-	border-left:none;
+#messageContent {
+	display: flex;
+	height: 100%;
+	padding: 0;
+	margin: 0;
 }
 
-div.self{
-	display:table;
-	background-color:#fff;
-	max-width:55%;
-	height:auto;
-	padding:5px 15px;
+#messageFlame {
+	text-align: center;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	min-width: 400px;
+	margin: 0;
+}
+
+#messageUser {
+	margin: 0;
+	width: 300px;
+	min-width:280px;
+	height: 100vh;
+	overflow: hidden;
+	box-sizing: border-box;
+	border: solid 1px #cacaca;
+}
+
+div#messageArea {
+	width: calc(100% + 18px);
+	height: calc(100% - 150px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: auto;
+	text-align: left;
+	border: solid 1px #cacaca;
+	border-left: none;
+}
+
+div.self {
+	display: table;
+	background-color: #fff;
+	max-width: 55%;
+	height: auto;
+	padding: 5px 15px;
 	margin-left: auto;
 	margin-right: 40px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	border:solid 1px #e8e8e8;
+	border: solid 1px #e8e8e8;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
 }
 
-div.pair{
-	display:table;
-	background-color:#F8BBD0;
-	max-width:55%;
-	padding:5px 15px;
+div.pair {
+	display: table;
+	background-color: #E91E63;
+	color:white;
+	max-width: 55%;
+	padding: 5px 15px;
 	margin-right: auto;
-	margin-left: 10px;
+	margin-left: 40px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, .4);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
 }
 
-div.announce{
-	font-size:20px;
-	display:table;
-	background-color:#def;
-	max-width:180px;
-	padding:5px 15px;
+div.announce {
+	font-size: 20px;
+	display: table;
+	background-color: #def;
+	max-width: 180px;
+	padding: 5px 15px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 5px;
 }
-#inputArea{
-	height:10%;
-}
-#messageNav{
-	width:100%;
-	min-width:320px;
-	height:80px;
-	padding:10px;
+
+#inputArea {
+	height: 10%;
 }
 
-#messageNav p{
-	display:inline-table;
-	margin-left:10%;
+#messageNav {
+	width: 100%;
+	min-width: 320px;
+	height: 80px;
+	padding: 10px;
 }
 
-#messageInput{
-	height:50px;
-	width:100%;
-	box-sizing:border-box;
-	border:none;
-	background-color:#FFF;
-	margin:auto;
-}
-#messageSend{
-	margin:3px 0 2px auto;
-	height:40px;
-	width:80px;
-	line-height:50px;
-	position:relative;
-	top:-50px;
-	border-radius:10px;
-	border:solid 1px gray;
-	background-color:#BDBDBD
-}
-#messageClose{
-	vartical-algin:auto;
-	height:24px;
-	width:24px;
-	line-height:24px;
-	font-size:20pt;
-	color:#E91E63;
-	box-sizing:border-box;
-	border:solid 1px;
-	border-radius:12px;
+#messageNav p {
+	display: inline-table;
+	margin-left: 10%;
 }
 
-#m_photo{
+#messageInput {
+	height: 50px;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	background-color: #FFF;
+	margin: auto;
+}
+
+#messageSend {
+	margin: 3px 0 2px auto;
+	height: 40px;
+	width: 80px;
+	line-height: 50px;
+	position: relative;
+	top: -50px;
+	border-radius: 10px;
+	border: solid 1px gray;
+	background-color: #BDBDBD
+}
+
+#messageClose {
+	cursor : pointer;
+	vartical-algin: auto;
+	height: 24px;
+	width: 24px;
+	line-height: 24px;
+	font-size: 20pt;
+	color: #E91E63;
+	box-sizing: border-box;
+	border: solid 1px;
+	border-radius: 12px;
+}
+
+
+#m_photo {
 	object-fit: cover;
-	height:45%;
-	width:300px;
+	height: 45%;
+	width: 280px;
 }
 
-#m_name{
-	line-height:50px;
-	font-weight:bold;
-	text-align:center;
-	margin:0;
-	height:50px;
+#m_name {
+	line-height: 50px;
+	font-weight: bold;
+	text-align: center;
+	margin: 0;
+	height: 50px;
 }
 
-#m_comment{
-	color:#757575;
-	margin:0;
-	padding:10px;
-	height:calc(55% - 97px);
-	box-sizing:border-box;
-	border-top:solid 1px #cacaca;
-	border-bottom:solid 1px #cacaca;
+#m_comment {
+	color: #757575;
+	margin: 0;
+	padding: 10px;
+	height: calc(55% - 97px);
+	box-sizing: border-box;
+	border-top: solid 1px #cacaca;
+	border-bottom: solid 1px #cacaca;
 }
 
-#m_delete{
-	color:#757575;
-	line-height:50px;
-	text-align:center;
-	margin:0;
-	padding:0;
-	height:50px;
+#m_delete {
+	color: #757575;
+	line-height: 50px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	height: 50px;
 }
 
-div#profileflame{
-	position:absolute;
-	width:calc(100% - 200px);
-	height:100%;
-	background-color:#fafafa;
-	top:0;
-	left:100%;
-	z-index:3;
-	border:solid 1px #cacaca;
+div#profileflame {
+	position: absolute;
+	width: calc(100% - 200px);
+	height: 100%;
+	background-color: #fafafa;
+	top: 0;
+	left: 100%;
+	z-index: 3;
+	border: solid 1px #cacaca;
 }

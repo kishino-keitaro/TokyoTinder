@@ -34,11 +34,12 @@ public class WebSocketEndpointAction {
 		String[] temp = message.split(":");
 		System.out.println(Arrays.toString(temp));
 		TinderDao dao = new TinderDao();
-
+		int userId = 0;
+		int messageId = 0;
 		switch (temp[0]) {
 		case "message":
 			int id = Integer.parseInt(temp[1]);
-			int messageId = Integer.parseInt(temp[2]);
+			messageId = Integer.parseInt(temp[2]);
 			message = temp[3];
 
 			dao.sendMessage(message, messageId, id);
@@ -48,9 +49,12 @@ public class WebSocketEndpointAction {
 			}
 			break;
 		case "createMessage":
-			int userId =Integer.parseInt(temp[2]);
+			// 0:コマンド,1:ユーザーID,2:メッセージID,3:メッセージ相手
+			userId  = Integer.parseInt(temp[1]);
+			messageId = Integer.parseInt(temp[2]);
+			int targetId = Integer.parseInt(temp[3]);
 			String text = "";
-			for(MessageEntity msg : dao.getMessageData(Integer.parseInt(temp[1]))){
+			for(MessageEntity msg : dao.getMessageData(messageId)){
 				if(msg.getSpeaker() == userId) {
 					text += "<div class = self>" + msg.getMessage() + "</div>";
 				}else if(msg.getSpeaker() == 0){
@@ -59,7 +63,9 @@ public class WebSocketEndpointAction {
 					text += "<div class = pair>" + msg.getMessage() + "</div>";
 				}
 			}
-			mysession.getBasicRemote().sendText("{\"text\":\"" + text + "\",\"command\":\"createMessage\", \"messageId\":\""+ temp[1] + "\", \"UserId\":\""+ temp[2] + "\"}");
+
+			ProfileEntity t_ent = dao.getProfile(targetId);
+			mysession.getBasicRemote().sendText("{\"text\":\"" + text + "\",\"command\":\"createMessage\", \"messageId\":\""+ temp[1] + "\", \"UserId\":\""+ temp[2] + "\",\"name\":\""+ t_ent.getName() + "\", \"age\":\""+ t_ent.getAge() + "\", \"image\":\""+ t_ent.getImage() + "\", \"comment\":\""+ t_ent.getComment() + "\"}");
 			break;
 		case "judge":
 			// 0:コマンド,1:評価,2:評価者ID,3:評価者性別,4:対象者ID
@@ -87,7 +93,7 @@ public class WebSocketEndpointAction {
 	@OnClose
 	public void onClose(Session session) {
 		// 完了時
-		System.out.println("!!!!!!!!!!!!!!!!");
+		System.out.println("onClose!!");
 		sessions.remove(session);
 	}
 

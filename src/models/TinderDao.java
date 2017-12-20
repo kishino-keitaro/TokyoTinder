@@ -98,7 +98,8 @@ public class TinderDao {
 		timeOutMatchUser();
 
 		try {
-			pstatement = connection.prepareStatement("select * from match_tbl where s_id = ? or b_id = ? order by latest DESC");
+			pstatement = connection
+					.prepareStatement("select * from match_tbl where s_id = ? or b_id = ? order by latest DESC");
 			pstatement.setInt(1, userId);
 			pstatement.setInt(2, userId);
 			rs = pstatement.executeQuery();
@@ -108,8 +109,10 @@ public class TinderDao {
 				MatchUserEntity ent = new MatchUserEntity();
 				int id = rs.getInt("s_id");
 				id = userId == id ? rs.getInt("b_id") : id;
+				boolean read = userId == id ? rs.getBoolean("s_read") : rs.getBoolean("b_read");
 				ent.setUserId(id);
 				ent.setEnt(getProfile(id));
+				ent.setRead(read);
 				ent.setLatest(rs.getString("l_message"));
 				ent.setMessageId(rs.getInt("message_id"));
 				entList.add(ent);
@@ -125,7 +128,8 @@ public class TinderDao {
 
 		PreparedStatement pstatement = null;
 		try {
-			pstatement = connection.prepareStatement("delete from message_tbl where message_tbl.message_id in (select message_id from match_tbl where s_id = ? or b_id = ?)");
+			pstatement = connection.prepareStatement(
+					"delete from message_tbl where message_tbl.message_id in (select message_id from match_tbl where s_id = ? or b_id = ?)");
 			pstatement.setInt(1, userId);
 			pstatement.setInt(2, userId);
 			pstatement.executeUpdate();
@@ -270,7 +274,6 @@ public class TinderDao {
 		if (getMessageId(_a, _b) != -1)
 			return false;
 
-
 		try {
 			// テーブルロック（他者からの読み書き禁止）
 			pstatement = connection.prepareStatement("LOCK TABLES match_tbl WRITE");
@@ -287,7 +290,7 @@ public class TinderDao {
 			pstatement = connection.prepareStatement("UNLOCK TABLES");
 			pstatement.executeUpdate();
 
-			sendMessage("新しいマッチです！", getMessageId(_a, _b),0);
+			sendMessage("新しいマッチです！", getMessageId(_a, _b), 0);
 
 			pstatement.close();
 		}
@@ -411,7 +414,8 @@ public class TinderDao {
 
 		try {
 			statement = connection.createStatement();
-			rs = statement.executeQuery("select * from message_tbl where message_id = " + message_id + " and speaker = 0");
+			rs = statement
+					.executeQuery("select * from message_tbl where message_id = " + message_id + " and speaker = 0");
 			if (rs.next()) {
 				Date date = rs.getDate("time");
 				time = date.toString().replaceAll("-", "/");
@@ -462,7 +466,6 @@ public class TinderDao {
 			pstatement = connection.prepareStatement("LOCK TABLES message_tbl WRITE");
 			pstatement.executeUpdate();
 
-
 			// 入力された情報をDBに登録
 			pstatement = connection.prepareStatement(
 					"insert into message_tbl(message_id,speaker,message,time) " + "values(?, ?, ?,now())");
@@ -474,12 +477,12 @@ public class TinderDao {
 			pstatement = connection.prepareStatement("LOCK TABLES match_tbl WRITE");
 			pstatement.executeUpdate();
 
-			pstatement = connection.prepareStatement(
-					"update match_tbl set latest = now(), l_message = ? where message_id = ?");
+			pstatement = connection
+					.prepareStatement("update match_tbl set latest = now(), l_message = ? where message_id = ?");
 			pstatement.setString(1, message);
 			pstatement.setInt(2, messageId);
 			pstatement.executeUpdate();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// テーブルアンロック
@@ -491,8 +494,6 @@ public class TinderDao {
 		return;
 	}
 
-
-
 	public void timeOutMatchUser() throws SQLException {
 		// マッチを解除（同時にメッセージ履歴を削除）
 
@@ -500,10 +501,11 @@ public class TinderDao {
 		ResultSet rs = null;
 		try {
 			// テーブルから削除
-			pstatement = connection.prepareStatement("select message_id from match_tbl where not latest BETWEEN (CURDATE() - INTERVAL 14 DAY) AND (CURDATE() + INTERVAL 1 DAY)");
+			pstatement = connection.prepareStatement(
+					"select message_id from match_tbl where not latest BETWEEN (CURDATE() - INTERVAL 14 DAY) AND (CURDATE() + INTERVAL 1 DAY)");
 			rs = pstatement.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				deleteMatchUser(rs.getInt("message_id"));
 			}
 			rs.close();
@@ -515,4 +517,52 @@ public class TinderDao {
 		return;
 	}
 
+	public void updateRead(int messageId, int userId) throws SQLException {
+		PreparedStatement pstatement = null;
+		ResultSet rs = null;
+		try {
+			// テーブルから削除
+			pstatement = connection.prepareStatement("update * from match_tbl where message_id = " + messageId);
+			rs = pstatement.executeQuery();
+
+			if (rs.next()) {
+
+			}
+			rs.close();
+
+		} finally {
+			pstatement.close();
+		}
+
+		return;
+	}
+
+	public void updateRead(int messageId, int userId, boolean read) throws SQLException {
+		PreparedStatement pstatement = null;
+		ResultSet rs = null;
+		int s_id = 0;
+		try {
+
+			pstatement = connection.prepareStatement("select s_id from match_tbl where message_id = " + messageId);
+			rs = pstatement.executeQuery();
+
+			if (rs.next()) {
+				s_id = rs.getInt("s_id");
+				if (userId == s_id) {
+					pstatement = connection
+							.prepareStatement("update match_tbl set s_read=? where message_id = " + messageId);
+					pstatement.setBoolean(1, read);
+					pstatement.executeUpdate();
+				} else {
+					pstatement = connection
+							.prepareStatement("update match_tbl set b_read=? where message_id = " + messageId);
+					pstatement.setBoolean(1, read);
+					pstatement.executeUpdate();
+				}
+				rs.close();
+			}
+		} finally {
+			pstatement.close();
+		}
+	}
 }

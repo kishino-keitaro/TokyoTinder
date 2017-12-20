@@ -3,6 +3,13 @@ package models;
 public class MatchUserEntity {
 	private int messageId;
 	private int userId;
+	private boolean read;
+	public boolean isRead() {
+		return read;
+	}
+	public void setRead(boolean read) {
+		this.read = read;
+	}
 	private String latest;
 	private ProfileEntity ent;
 	public int getMessageId() {
