@@ -177,9 +177,15 @@
 			%>
 			<div id="navHidden">
 				<%
+<<<<<<< HEAD
 				        for (MatchUserEntity m_ent : m_list) {
 				                        int messageId = dao.getMessageId(self.getUserId(), m_ent.getUserId());
 				                        ProfileEntity p_ent = m_ent.getEnt();
+=======
+					for (MatchUserEntity m_ent : m_list) {
+							int messageId = dao.getMessageId(self.getUserId(), m_ent.getUserId());
+							ProfileEntity p_ent = m_ent.getEnt();
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 				%>
 				<li class="partner clearfix" id="<%=messageId%>";><a
 					href="javascript:void(0)"
@@ -196,11 +202,19 @@
 						</div>
 				</a></li>
 				<%
+<<<<<<< HEAD
 				        }
+=======
+					}
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 				%>
 			</div>
 			<%
+<<<<<<< HEAD
 			        } else {
+=======
+				} else {
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 			%>
 			<!-- マッチ相手がいない場合の表示 -->
 			<li class="partner clearfix"><img border="0"
@@ -278,7 +292,11 @@
 				</div>
 			</div>
 			<%
+<<<<<<< HEAD
 			        }
+=======
+				}
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 			%>
 			<!-- メッセージ画面 -->
 			<div class="message">
@@ -355,18 +373,32 @@
 				</div>
 
 				<div class="profimage">
+<<<<<<< HEAD
 					<div class="profedit">
 					<div class="profimageInside">
 						<img border="0" src="./img/prof.jpg" width="250" height="350"
 							alt="イラスト1">
+=======
+					<div class="profimageInside clearfix">
+						<img border="0" src="./img/prof.jpg" width="250" height="350"
+							alt="イラスト1">
+
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 					</div>
 
+<<<<<<< HEAD
 					<div class="imgInput clearfix">
 						<img border="0" src="img/upload.jpg" alt="" class="imgView"
 							width="150" height="150"> <br> <img border="0"
 							src="img/uploadbutton.jpg" alt="" width="150" height="35">
 						<br> <input type="file" name="file1"
 							accept="image/png,image/jpeg,image/gif">
+=======
+					<div class="imgInput">
+						<img border="0" src="img/no_avatar.jpg" alt="" class="imgView"
+							width="150" height="150"> <br> <input type="file"
+							name="file1" accept="image/png,image/jpeg,image/gif">
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 
 						<p class="caution">
 							画像の最大サイズ：<br>700KB。対応フォー<br>マットは<br>GIF,JPEG,PNGです。
@@ -383,6 +415,21 @@
 
 				<!--/.imgInput-->
 
+<<<<<<< HEAD
+=======
+				<div class="profScroll">
+					<h2>コメント</h2>
+					<p>全力に真面目に、全力に不真面目に生きております。人生楽しくがモットーです。</p>
+					<h2>base_data</h2>
+					<p>
+						誕生日: 1988.10.10<br> 性別: 男<br> 趣味: スノボ（グラトリ専門）、バスケ<br>
+						特技: ビートボックス、フリースタイルバスケットボール<br>
+					</p>
+					<h2>work</h2>
+					<br> 今の仕事: teratailの広報<br> できること:
+					広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々）<br> 職歴:
+					エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 
 				<div class="profScrollHidden">
 					<div class="form">
@@ -409,6 +456,7 @@
 				<div class="changePass">
 					<label>現在のパスワード </label>
 					<textarea name="content" rows="1" cols="50"></textarea>
+<<<<<<< HEAD
 					<br> <label>新パスワード </label><label>※半角英数字4～16文字以内</label>
 					<textarea name="content" rows="1" cols="50"></textarea>
 					<br> <label>新パスワード（確認） </label><label>※半角英数字4～16文字以内</label>
@@ -422,6 +470,13 @@
 								class="button2">キャンセル</a></span>
 						</div>
 					</div>
+=======
+					<br> <label>新パスワード入力 </label> <input type="password"
+						name="pass" id="passwd"
+						class="validate[required,minSize[4],maxSize[16],custom[onlyLetterNumber]]text-input">
+					<br> <label>パスワード再入力 </label> <input type="password"
+						id="reepass" class="validate[required,equals[passwd]] text-input">
+>>>>>>> branch 'master' of https://github.com/kishino-keitaro/TokyoTinder.git
 				</div>
 				<div class="changebutton">
 
