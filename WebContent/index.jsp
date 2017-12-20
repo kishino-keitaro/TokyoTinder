@@ -5,13 +5,13 @@
 
 <!DOCTYPE html>
 <%
-
-int id = 2;
-if(request.getParameter("id") != null){
-	id = Integer.parseInt(request.getParameter("id"));
-}
-TinderDao dao = new TinderDao();
-session.setAttribute("self", dao.getProfile(id));
-session.setAttribute("self_id", id);
-response.sendRedirect("home");
+        int id = 2;
+        if (request.getParameter("id") != null) {
+                id = Integer.parseInt(request.getParameter("id"));
+        }
+        TinderDao dao = new TinderDao();
+        session.setAttribute("self", dao.getProfile(id));
+        session.setAttribute("self_id", id);
+        response.sendRedirect("home");
 %>
+

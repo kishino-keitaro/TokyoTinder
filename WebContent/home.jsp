@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=Windows-31J" pageEncoding="Windows-31J"%>
+<%@ page language="java" contentType="text/html; charset=Windows-31J"
+	pageEncoding="Windows-31J"%>
 <%@ page import="models.MessageEntity"%>
 <%@ page import="models.ProfileEntity"%>
 <%@ page import="models.MatchUserEntity"%>
@@ -12,15 +13,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 <LINK REL="stylesheet" TYPE="text/css" HREF="css/style1.css">
 <%
-	String state = (String) session.getAttribute("state");
-	TinderDao dao = new TinderDao();
-	ProfileEntity self = (ProfileEntity) session.getAttribute("self");
-	ProfileEntity ent = null;
-	if (state.equals("home") || state.equals("judge")) {
-		ent = (ProfileEntity) request.getAttribute("random");
-	}
+        String state = (String) session.getAttribute("state");
+			TinderDao dao = new TinderDao();
+			ProfileEntity self = (ProfileEntity) session.getAttribute("self");
+			ProfileEntity ent = null;
+			if (state.equals("home") || state.equals("judge")) {
+				ent = (ProfileEntity) request.getAttribute("random");
+			}
 %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	/* マウスオーバー */
 
@@ -35,6 +37,15 @@
 				alert('しました');
 				location.href = 'index.html';
 			}
+		});
+	});
+	/* パスワード出す */
+	$(function() {
+
+		$('.passchange').click(function() {
+
+			$('.changebutton').hide();
+			$('.changePass').slideDown("slow");
 		});
 	});
 	/* メッセージ画面表示 */
@@ -96,6 +107,8 @@
 			$('.changePass').slideDown("slow");
 		});
 	};
+	
+
 
 	$(function() {
 		var setFileInput = $('.imgInput'), setFileImg = $('.imgView');
@@ -149,42 +162,52 @@
 	<!-- サイドメニュー -->
 	<div class="nav">
 		<ul class="nl">
-			<li class="myprof clearfix"><a id ="prof_btn" href="javascript:void(0)" onclick="prof();">
+			<li class="myprof clearfix"><a id="prof_btn"
+				href="javascript:void(0)" onclick="prof();">
 					<div class="pic">
-						<img border="0" src="./img/prof.jpg" width="40" height="40" alt="イラスト1">
+						<img border="0" src="./img/prof.jpg" width="40" height="40"
+							alt="イラスト1">
 					</div>
 					<div onclick="return false" class="text jikoprof">自己プロフィール</div>
 			</a></li>
 			<%
-				//条件
-				ArrayList<MatchUserEntity> m_list = dao.getMatchUser(self.getUserId());
-				if (m_list != null) {
+			        //条件
+			        ArrayList<MatchUserEntity> m_list = dao.getMatchUser(self.getUserId());
+			        if (m_list != null) {
 			%>
-			<div id = "navHidden">
-			<%
-				for (MatchUserEntity m_ent : m_list) {
-						int messageId = dao.getMessageId(self.getUserId(), m_ent.getUserId());
-						ProfileEntity p_ent = m_ent.getEnt();
-			%>
-			<li class="partner clearfix" id="<%=messageId%>";><a href="javascript:void(0)" onclick="message_window(<%=self.getUserId()%>,<%=messageId%>,<%=m_ent.getUserId()%>);">
-						<input type="hidden" name="Ids" value="<%=messageId + ":" + m_ent.getUserId()%>">
+			<div id="navHidden">
+				<%
+				        for (MatchUserEntity m_ent : m_list) {
+				                        int messageId = dao.getMessageId(self.getUserId(), m_ent.getUserId());
+				                        ProfileEntity p_ent = m_ent.getEnt();
+				%>
+				<li class="partner clearfix" id="<%=messageId%>";><a
+					href="javascript:void(0)"
+					onclick="message_window(<%=self.getUserId()%>,<%=messageId%>,<%=m_ent.getUserId()%>);">
+						<input type="hidden" name="Ids"
+						value="<%=messageId + ":" + m_ent.getUserId()%>">
 						<div class="pic">
-							<img border="0" src="<%=p_ent.getImage()%>" width="40" height="40" alt="photo">
+							<img border="0" src="<%=p_ent.getImage()%>" width="40"
+								height="40" alt="photo">
 						</div>
 						<div class="text">
 							<div class="sidename"><%=p_ent.getName()%></div>
 							<div class="sidemessage"><%=m_ent.getLatest()%></div>
 						</div>
-			</a></li>
+				</a></li>
+				<%
+				        }
+				%>
+			</div>
 			<%
-				}%></div>
-				<% }else{
+			        } else {
 			%>
 			<!-- マッチ相手がいない場合の表示 -->
-			<li class="partner clearfix"><img border="0" src="./img/sidemenu.jpg" width="100%" height="100%" alt="イラスト1"></li>
+			<li class="partner clearfix"><img border="0"
+				src="./img/sidemenu.jpg" width="100%" height="100%" alt="イラスト1"></li>
 	</div>
 	<%
-		}
+	        }
 	%>
 	</ul>
 
@@ -193,34 +216,40 @@
 	<div id="content">
 		<!-- ホーム -->
 		<%
-			if (ent != null) {
+		        if (ent != null) {
 		%>
 		<div class="select">
 			<div class="someOne">
-			<div id ="r_content">
-				<span class="photo"><img id="randomPhoto" border="0" src="<%=ent.getImage()%>" width="400" height="500" alt="イラスト1"></span>
-				<div class="scrollHidden">
-					<div class="nameAge">
-						<p id="name_age">
-							<span id="r_name"><%=ent.getName()%></span> <span id="r_age"><%=ent.getAge()%></span>
-						</p>
+				<div id="r_content">
+					<span class="photo"><img id="randomPhoto" border="0"
+						src="<%=ent.getImage()%>" width="400" height="500" alt="イラスト1"></span>
+					<div class="scrollHidden">
+						<div class="nameAge">
+							<p id="name_age">
+								<span id="r_name"><%=ent.getName()%></span> <span id="r_age"><%=ent.getAge()%></span>
+							</p>
+						</div>
+						<div class="scroll">自己PR
+							全力に真面目に、全力に不真面目に生きております。人生楽しくがモットーです。 今の仕事: teratailの広報 できること:
+							広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々） 職歴:
+							エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）</div>
 					</div>
-					<div class="scroll">自己PR 全力に真面目に、全力に不真面目に生きております。人生楽しくがモットーです。 今の仕事: teratailの広報 できること: 広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々） 職歴: エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）</div>
-				</div>
 				</div>
 				<div class="judge">
 					<div class="batsu">
 						<input type="hidden" name="targetId" value="<%=ent.getUserId()%>">
-						<img id="bad" border="0" src="./img/batsu.jpg" width="80" height="80" alt="×"> </a>
+						<img id="bad" border="0" src="./img/batsu.jpg" width="80"
+							height="80" alt="×"> </a>
 						</form>
 					</div>
 					<div class="maru">
-						<img id="good" border="0" src="./img/heart.jpg" width="80" height="80" alt="〇">
+						<img id="good" border="0" src="./img/heart.jpg" width="80"
+							height="80" alt="〇">
 					</div>
 				</div>
 			</div>
 			<%
-				} else {
+			        } else {
 			%>
 			<!-- 誰もいなくなった画面 -->
 			<div class="select">
@@ -228,53 +257,55 @@
 					<div class="pink">
 						<div class="pink2">
 							<div class="white">
-								<span class="photo"><img border="0" src="./img/prof.jpg" width="130" height="130" alt="イラスト1"></span>
+								<span class="photo"><img border="0" src="./img/prof.jpg"
+									width="130" height="130" alt="イラスト1"></span>
 							</div>
 						</div>
 					</div>
 					<div class="scroll">
-						<p id ="no_comment">そして誰もいなくなった・・・。</p>
+						<p id="no_comment">そして誰もいなくなった・・・。</p>
 					</div>
 					<div class="judge">
 						<div class="batsu">
-							<img border="0" src="./img/batsu2.jpg" width="80" height="80" alt="×">
+							<img border="0" src="./img/batsu2.jpg" width="80" height="80"
+								alt="×">
 						</div>
 						<div class="maru">
-							<img border="0" src="./img/heart2.jpg" width="80" height="80" alt="〇">
+							<img border="0" src="./img/heart2.jpg" width="80" height="80"
+								alt="〇">
 						</div>
 					</div>
 				</div>
 			</div>
 			<%
-					}
-				%>
+			        }
+			%>
 			<!-- メッセージ画面 -->
 			<div class="message">
-			<div id = "messageContent">
-			<div id ="messageFlame">
-				<div id ="messageNav">
-				<p>彼女とは昨日マッチしました。</p>
-				<p id ="messageClose" onclick="message_close();">×</p>
+				<div id="messageContent">
+					<div id="messageFlame">
+						<div id="messageNav">
+							<p>彼女とは昨日マッチしました。</p>
+							<p id="messageClose" onclick="message_close();">×</p>
+						</div>
+						<div id="messageArea"></div>
+						<div id="inputArea">
+							<input name="<%=self.getUserId() + ":" + "message_id" + ":"%>"
+								type="text" id="messageInput" maxlength="500" />
+							<p id="messageSend">送信</p>
+						</div>
+					</div>
+					<div id="messageUser">
+						<img id="m_photo" src="./img/1.jpg">
+						<p id="m_name">aaaaaa</p>
+						<p id="m_comment">iiiiiiiiiiiiii</p>
+						<p id="m_delete">マッチを解除</p>
+					</div>
 				</div>
-				<div id="messageArea">
-
-				</div>
-				<div id = "inputArea">
-					<input name="<%=self.getUserId() + ":" + "message_id" + ":"%>" type="text" id="messageInput" maxlength="500" />
-					<p id ="messageSend">送信</p>
-				</div>
-			</div>
-			<div id = "messageUser">
-			<img id ="m_photo" src ="./img/1.jpg">
-			<p id ="m_name">aaaaaa</p>
-			<p id ="m_comment">iiiiiiiiiiiiii</p>
-			<p id ="m_delete">マッチを解除</p>
-			</div>
-			</div>
 			</div>
 		</div>
 		<!-- プロフィール画面 -->
-			<div id ="profileflame">
+		<div id="profileflame">
 			<div class="profile">
 				<div class="profch">
 					<a class="button" href="javascript:void(0)" onclick="editProf()">情報の編集</a>
@@ -282,23 +313,30 @@
 				<input type="hidden" name="UserID" value="<%=self.getUserId()%>">
 				<input type="hidden" name="UserSex" value="<%=self.getSex()%>">
 				<div class="profimage">
-					<img id="profPhoto" border="0" src="<%=self.getImage()%>" width="400" height="500" alt="profimage">
+					<img id="profPhoto" border="0" src="<%=self.getImage()%>"
+						width="400" height="500" alt="profimage">
 				</div>
 				<div class="profScrollHidden">
-				<div class="profname"><p>
-					名前:<span id="UserName"><%=self.getName()%></span> <span id="UserAge"><%=self.getAge()%></span>
-				</p></div>
+					<div class="profname">
+						<p>
+							名前:<span id="UserName"><%=self.getName()%></span> <span
+								id="UserAge"><%=self.getAge()%></span>
+						</p>
+					</div>
 					<div class="profScroll">
 						<h2>コメント</h2>
 						<p><%=self.getComment()%>全力に真面目に、全力に不真面目に生きております。人生楽しくがモットーです。
 						</p>
 						<h2>base_data</h2>
 						<p>
-							誕生日: 1988.10.10<br> 性別:<span id="UserSex"><%=self.getSex()%></span><br> 趣味: スノボ（グラトリ専門）、バスケ<br> 特技: ビートボックス、フリースタイルバスケットボール<br>
+							誕生日: 1988.10.10<br> 性別:<span id="UserSex"><%=self.getSex()%></span><br>
+							趣味: スノボ（グラトリ専門）、バスケ<br> 特技: ビートボックス、フリースタイルバスケットボール<br>
 						</p>
 						<h2>work</h2>
 						<p>
-							今の仕事: teratailの広報<br> できること: 広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々）<br> 職歴: エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）
+							今の仕事: teratailの広報<br> できること:
+							広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々）<br> 職歴:
+							エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）
 						</p>
 					</div>
 				</div>
@@ -306,59 +344,97 @@
 					<span class="logout"><a href="index.html" class="button">ログアウト</a></span>
 				</div>
 			</div>
+			<!-- プロフィール変更画面 -->
+
 			<div class="editProf">
-				<p>
-				<form>
-					<input type=submit value="保存">
 
-				</form>
+				<div class="save">
+					<form>
+						<input type=submit value="保存" class="button">
+					</form>
+				</div>
+
 				<div class="profimage">
-					<div class="profimageInside clearfix">
-						<img border="0" src="./img/prof.jpg" width="250" height="350" alt="イラスト1">
-
+					<div class="profedit">
+					<div class="profimageInside">
+						<img border="0" src="./img/prof.jpg" width="250" height="350"
+							alt="イラスト1">
 					</div>
 
-					<div class="imgInput">
-						<img border="0" src="img/no_avatar.jpg" alt="" class="imgView" width="150" height="150"> <br>
-						<input type="file" name="file1" accept="image/png,image/jpeg,image/gif">
+					<div class="imgInput clearfix">
+						<img border="0" src="img/upload.jpg" alt="" class="imgView"
+							width="150" height="150"> <br> <img border="0"
+							src="img/uploadbutton.jpg" alt="" width="150" height="35">
+						<br> <input type="file" name="file1"
+							accept="image/png,image/jpeg,image/gif">
 
+						<p class="caution">
+							画像の最大サイズ：<br>700KB。対応フォー<br>マットは<br>GIF,JPEG,PNGです。
+						</p>
+						<p class="agesex">
+							年齢 21<br>性別 男
+						</p>
 					</div>
-					<p>木下雄策について紹介</p>
+					</div>
+
+					<p class="introduction">木下雄策について紹介</p>
+
 				</div>
 
 				<!--/.imgInput-->
 
-				<div class="profScroll">
-					<h2>コメント</h2>
-					<p>全力に真面目に、全力に不真面目に生きております。人生楽しくがモットーです。</p>
-					<h2>base_data</h2>
-					<p>
-						誕生日: 1988.10.10<br> 性別: 男<br> 趣味: スノボ（グラトリ専門）、バスケ<br> 特技: ビートボックス、フリースタイルバスケットボール<br>
-					</p>
-					<h2>work</h2>
-					<br> 今の仕事: teratailの広報<br> できること: 広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々）<br> 職歴: エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）
 
+				<div class="profScrollHidden">
+					<div class="form">
+					<div class="formhidden">
+					<form action="cgi-bin/formmail.cgi" method="post">
+						<textarea name="kanso" rows="13" cols="62" style="border:none;">
+													<h2>コメント</h2>
+						<p>全力に真面目に、全力に不真面目に生きております。人生楽しくがモットーです。</p>
+						<h2>base_data</h2>
+						<p>
+							誕生日: 1988.10.10<br> 性別: 男<br> 趣味: スノボ（グラトリ専門）、バスケ<br>
+							特技: ビートボックス、フリースタイルバスケットボール<br>
+						</p>
+						<h2>work</h2>
+						<br> 今の仕事: teratailの広報<br> できること:
+						広報、営業、プロモーション企画/ディレクデョン、プログラミング（少々）<br> 職歴:
+						エンジニア業界の営業（約2年）、teratail広報（約10ヶ月）
+							</textarea>
+						<!-- <br> <input type="submit" value="送信"> -->
+					</form>
+						</div>
+					</div>
 				</div>
 				<div class="changePass">
-					<label>パスワード入力 </label>
+					<label>現在のパスワード </label>
 					<textarea name="content" rows="1" cols="50"></textarea>
-					<br> <label>新パスワード入力 </label>
+					<br> <label>新パスワード </label><label>※半角英数字4～16文字以内</label>
 					<textarea name="content" rows="1" cols="50"></textarea>
-					<br> <label>パスワード再入力 </label>
+					<br> <label>新パスワード（確認） </label><label>※半角英数字4～16文字以内</label>
 					<textarea name="content" rows="1" cols="50"></textarea>
+					<div class="changePassInside">
+						<div class="cansel">
+							<a href="home.jsp?password=aa&prof1=aa" class="button2">パスワードを変更する</a>
+						</div>
+						<div class="cansel">
+							<span><a href="/WebSocketInspect/home.jsp?prof1"
+								class="button2">キャンセル</a></span>
+						</div>
+					</div>
 				</div>
 				<div class="changebutton">
 
 					<div class="changePassButton">
-						<a href="javascript:void(0)" class="button2" onclick="slow();">パスワードを変更する</a>
+						<a class="button2 passchange">パスワードを変更する</a>
 					</div>
 					<div class="changePassButton">
 						<span class="logout"><a href="index.html" class="button2">アカウントを削除</a></span>
 					</div>
 				</div>
 			</div>
-			</div>
-			<script type="text/javascript" src="WebSocketInspect.js"></script>
+		</div>
+		<script type="text/javascript" src="WebSocketInspect.js"></script>
 </body>
 <%
 	dao.close();

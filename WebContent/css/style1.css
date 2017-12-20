@@ -235,40 +235,105 @@ div.profScroll {
 	margin: 0 auto;
 }
 
+ .profScrollHidden {
+	overflow: hidden;
+/* 	border: solid 1px #cacaca;
+	width:100%; */
+/* 	height:100hv; */
+} 
+
+ .profimage {
+/* 	border-bottom: 1px solid #bbbabab5;
+	height: 500px; */
+	width:200px;
+} 
+.profimageFirst{
+	margin: 0px 35px;
+}
+
+.profimage img {
+/* 	margin-left: 3px; */
+	object-fit: cover;
+}
+
+.profname {
+	height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #bbbabab5;
+}
+
 .proflogout {
 	margin-bottom: -20px;
 	text-align: center;
 }
-
 .profch {
-	position: relative;
-	bottom: 20px;
-	margin-bottom: -40px;
-	text-align: center;
+    margin-bottom: -40px;
+    text-align: center;
+    bottom: 20px;
+    position: relative;
 }
 
 .editProf {
-	display: none;
-	margin-left: 270px;
-	border: 1px solid #bbbabab5;
-	border-radius: 10px;
-	width: 470px;
-	overflow: hidden;
+	margin:0 auto;
+    z-index: 1;
+    width: min-content;
+    border: 1px solid #cacaca;
+    border-radius: 10px;
+    position: relative;
+    top: 50px;
 }
-
+.profedit{
+	display:flex;
+	width:min-content;
+	padding-left: 18px;
+}
 .profimageInside {
-	float: left;
-	height: 500px;
+	/* float: left; */
 }
 
+.save {
+	margin-top: -20px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+ .form{
+	border: solid 1px #cacaca;
+} 
+.formhidden{
+	overflow: hidden;
+   width: 95.5%;
+}
 .changePass {
 	display: none;
-}
-
-.changebutton {
 	border-top: 1px solid #bbbabab5;
+
+}
+.changePassInside{
+	display:flex;
+}
+.changebutton {
 	text-align: center;
-	height: 150px;
+	height: 120px;
+}
+.cansel{
+	margin:15px 43px;
+}
+.caution{
+	margin-left:10px;
+	color:#f3529e;
+	font-size: 15px;
+}
+.agesex{
+	font-size:20px;
+	font-weight:bold;
+	text-align:center;
+	margin-bottom: 0px;
+}
+.introduction{
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+   margin: 0px 5px;
 }
 
 .changePassButton {
@@ -328,11 +393,13 @@ div.profScroll {
 
 .imgInput input[type="file"] {
 	opacity: 0;
+	width:150px;
+	height:150px;
+	margin-top:-150px;
 }
 
 .imgInput {
-	width: 200px;
-	float: right;
+	    margin-left: 10px;
 }
 
 #messageContent {

@@ -2,8 +2,7 @@ var webSocket;
 window.onload = function() {
 	var forRtoA = document.createElement('a');
 	forRtoA.href = "loadMessage";
-	webSocket = new WebSocket(forRtoA.href.replace("http://", "ws://").replace(
-			"https://", "wss://"));
+	webSocket = new WebSocket(forRtoA.href.replace("http://", "ws://").replace(	"https://", "wss://"));
 	var messageArea = document.getElementById("messageArea");
 	if (messageArea !== null) {
 		messageArea.scrollTop = messageArea.scrollHeight;
