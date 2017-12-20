@@ -49,4 +49,21 @@
     <servlet-name>home</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>controllers.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Registration</servlet-name>
+		<servlet-class>controllers.Registration</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Registration</servlet-name>
+		<url-pattern>/Registration</url-pattern>
+	</servlet-mapping>
 </web-app>
