@@ -24,9 +24,8 @@
 </script>
 </HEAD>
 <BODY>
-
+<img src="./img/logo.png">
 	<DIV CLASS="page">
-		<H1>Tokyo Tinder</H1>
 		<FORM name="form" ACTION="controllers/Login" METHOD="post"
 			onsubmit="return validate()">
 
