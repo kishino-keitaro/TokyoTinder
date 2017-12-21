@@ -23,42 +23,38 @@
 	}
 </script>
 </HEAD>
+<header> </header>
 <BODY>
-<img src="./img/logo.png">
-	<DIV CLASS="page">
-		<FORM name="form" ACTION="controllers/Login" METHOD="post"
-			onsubmit="return validate()">
+	<img src="./img/logo.png">
 
-			<div class="input_item">
-				<TABLE>
-					<TR>
-						<TD>ID</TD>
-						<TD><INPUT TYPE="text" NAME="loginId" id="loginId"
-							maxlength="16"></TD>
-						<TD>※半角英数字4～16文字以内</TD>
-					</TR>
-					<TR>
-						<TD>Password</TD>
-						<TD><INPUT TYPE="password" NAME="pass" id="pass"
-							maxlength="16"></TD>
-						<td>※半角英数字4～16文字以内</td>
-					</TR>
-					<tr>
-						<td><span style="color: red"><%=(request.getAttribute("message") == null) ? "" : request
-					.getAttribute("message")%></span></td>
-					</tr>
-				</TABLE>
+	<FORM name="form" ACTION="Login" METHOD="post"
+		onsubmit="return validate()">
 
-			</DIV>
 
-			<INPUT TYPE="submit" VALUE="ログイン">
+		<ul>
 
-		</FORM>
-		<FORM ACTION="signup.jsp" METHOD="post">
-			<INPUT TYPE="submit" VALUE="新規登録">
-		</FORM>
-	</DIV>
+			<!--ユーザーネーム-->
+			<li class="username"><label for="username">ユーザID*</label> <input
+				class="username" type="text" name="loginId" id="loginId"
+				maxlength="16" placeholder="ID" size="60">
+				<p>※半角英数字4～16文字以内</p></li>
 
-</body>
+			<!--パスワード-->
+			<li class="password"><label for="password">パスワード*</label> <input
+				class="password" type="password" name="pass" id="pass"
+				maxlength="16" placeholder=Password size="60">
+				<p>※半角英数字4～16文字以内</p></li>
+
+			<!--ログインボタン-->
+			<li class="signup"><a href="./signup.jsp" target="">新規登録</a> <input
+				id="button" type="submit" name="button" value="ログイン">
+				<p>
+					<span style="color: red"><%=(request.getAttribute("message") == null) ? "" : request.getAttribute("message")%></span>
+				</p></li>
+		</ul>
+
+	</FORM>
+
+
 </BODY>
 </HTML>
